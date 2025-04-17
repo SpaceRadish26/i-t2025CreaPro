@@ -6,6 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? '/i-t2025CreaPro/' : '/',
   plugins: [
     vue(),
     vueDevTools(),

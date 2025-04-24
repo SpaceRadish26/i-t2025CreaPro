@@ -35,6 +35,10 @@ function navigateToActivities() {
   router.push('/activities');
 }
 
+function navigateToAboutMe() {
+  router.push('/about-me');
+}
+
 onMounted(() => {
   // Set initial position in the center of the screen
   buttonPosition.value = {
@@ -46,10 +50,10 @@ onMounted(() => {
 
 <template>
   <div class="start-page">
-    <h1 class="fancy-title">Welcome to Brecht's creative portfolio, filled with riddles & shenanigans</h1>
+    <h1 class="fancy-title">Welkom bij mijn creatief portfolio!</h1>
 
     <div class="buttons-container">
-      <button class="fake-button" @click="showRiddleModal">Either solve this character quiz riddle</button>
+      <button class="fake-button" @click="showRiddleModal">Los dit "raad het karakter!" raadsel op</button>
 
       <button
           ref="realButtonRef"
@@ -61,8 +65,10 @@ onMounted(() => {
           top: buttonPosition.y + 'px'
         }"
       >
-        or find a way to get this button's link
+        of vind een manier om deze link te krijgen
       </button>
+
+      <button @click="navigateToAboutMe">Of wil je liever meer over mij weten?</button>
     </div>
 
     <RiddleComponent v-if="showRiddle"></RiddleComponent>

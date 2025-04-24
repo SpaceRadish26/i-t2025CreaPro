@@ -43,7 +43,7 @@ const characters = [
 ]
 
 const riddle = reactive({
-  question: "Who is the following character?",
+  question: "Wie is het onderstaande karakter?",
   answer: "",
   hint: "",
   image: "",
@@ -73,7 +73,7 @@ function checkAnswer() {
     router.push('/activities');
   } else {
     attempts.value++;
-    errorMessage.value = `Incorrect answer. Try again! (Attempt ${attempts.value})`;
+    errorMessage.value = `Fout antwoord. Je krijgt een hint na 3 pogingen! (Poging: ${attempts.value})`;
 
     // Show hint after 3 failed attempts
     if (attempts.value >= 3 && !showHint.value) {
@@ -96,7 +96,7 @@ onMounted(() => {
 <template>
   <div v-if="isOpen" class="riddle-modal">
     <div class="riddle-container">
-      <h2>Solve the Riddle to Continue</h2>
+      <h2>Los het raadsel op om verder te gaan</h2>
 
       <div class="riddle-question">
         <p>{{ riddle.question }}</p>
@@ -114,11 +114,11 @@ onMounted(() => {
         <input
             type="text"
             v-model="userAnswer"
-            placeholder="Your answer..."
+            placeholder="Jouw antwoord..."
             @keydown="handleKeyDown"
             autofocus
         />
-        <button @click="checkAnswer">Submit</button>
+        <button @click="checkAnswer">Indienen</button>
       </div>
 
       <div v-if="errorMessage" class="error-message">
@@ -130,7 +130,7 @@ onMounted(() => {
       </div>
 
       <div class="riddle-info">
-        <p>You must identify this character to continue to the activities page.</p>
+        <p>Je moet weten wie dit is vooraleer je door mag!</p>
       </div>
     </div>
   </div>

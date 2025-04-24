@@ -105,7 +105,7 @@ function checkAnswer(seminar) {
 <template>
   <div class="seminars-container">
     <h2>Third Year Seminars</h2>
-    <p class="instruction">Click on the ore blocks and identify the correct ore to reveal seminar information!</p>
+    <p class="instruction">Kies de juiste erts die overeen komt met de foto om de gegevens te onthullen!</p>
 
     <ul class="seminars-list">
       <li v-for="(seminar, index) in seminars" :key="index" class="seminar-item">
@@ -129,13 +129,13 @@ function checkAnswer(seminar) {
         <!-- Ore selection popup -->
         <div v-if="seminar.showSelection" class="ore-selection">
           <div class="ore-header">
-            <h4>What Minecraft ore is this?</h4>
+            <h4>Welke Minecraft erts is dit?</h4>
             <button class="close-btn" @click="seminar.showSelection = false">×</button>
           </div>
 
           <div class="selection-form">
             <select v-model="seminar.selectedOre" class="ore-dropdown">
-              <option value="" disabled>Select an ore</option>
+              <option value="" disabled>Kies een optie</option>
               <option v-for="option in oreOptions" :key="option" :value="option">
                 {{ option }}
               </option>
@@ -155,7 +155,7 @@ function checkAnswer(seminar) {
 
     <!-- Placeholder message when no seminars are available -->
     <div v-if="seminars.length === 0" class="no-seminars">
-      <p>Third year seminar information will be added soon!</p>
+      <p>Iets ging grandioos mis!</p>
       <div class="placeholder-ores">
         <img src="/ancient_debris.jpg" alt="Ancient Debris" class="placeholder-ore" />
         <img src="/nether_quartz_ore.jpg" alt="Nether Quartz Ore" class="placeholder-ore" />

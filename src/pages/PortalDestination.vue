@@ -3,7 +3,7 @@ import { ref, onMounted, shallowRef } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import Seminars2ndYear from '../components/Seminars2ndYear.vue';
 import Seminars3rdYear from '../components/Seminars3rdYear.vue';
-import ProjectPop from '../components/ProjectPop.vue';
+import InnoPersGrowthComponent from "@/components/InnoPersGrowthComponent.vue";
 
 const router = useRouter();
 const route = useRoute();
@@ -19,8 +19,8 @@ onMounted(() => {
     case 'seminars-3rd-year':
       currentComponent.value = Seminars3rdYear;
       break;
-    case 'project-pop':
-      currentComponent.value = ProjectPop;
+    case 'innovation-personal-growth':
+      currentComponent.value = InnoPersGrowthComponent;
       break;
     default:
       // Handle invalid route parameter
@@ -40,7 +40,7 @@ function goToHome() {
 <template>
   <div class="portal-destination">
     <header>
-      <h1 class="fancy-title">Portal Destination</h1>
+      <h1 class="fancy-title">Bestemming bereikt</h1>
     </header>
 
     <main>
@@ -49,7 +49,7 @@ function goToHome() {
         <p>Loading component...</p>
       </div>
     </main>
-    <button class="back-button" @click="goBack">Back to Activities</button>
+    <button class="back-button" @click="goBack">Terug naar selectiescherm</button>
 
   </div>
 </template>

@@ -5,21 +5,25 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 const selectedActivity = ref('');
 const activities = [
-  'Seminars 2nd year',
-  'Seminars 3rd year',
-  'Project & POP-sessions'
+  'Seminars 2nd year (minigame)',
+  'Seminars 3rd year (minigame)',
+  'Innovation & Personal Growth'
 ];
 
 const showPortal = ref(false);
 
 const destinationRoute = computed(() => {
   switch (selectedActivity.value) {
-    case 'Seminars 2nd year':
+    case 'Seminars 2nd year (minigame)':
       return '/destination/seminars-2nd-year';
-    case 'Seminars 3rd year':
+    case 'Seminars 3rd year (minigame)':
       return '/destination/seminars-3rd-year';
     case 'Project & POP-sessions':
       return '/destination/project-pop';
+    case 'Innovation & Personal Growth':
+      return '/destination/innovation-personal-growth';
+    case 'Detailed Reports':
+      return '/destination/detailed-reports';
     default:
       return '';
   }
@@ -42,20 +46,20 @@ function goToHome() {
 
 <template>
   <div class="activities-page">
-    <h1 class="fancy-title">Which activities do you wish to peruse?</h1>
+    <h1 class="fancy-title">Welke activiteit wil je meer over weten?</h1>
 
     <div class="dropdown-container">
       <select v-model="selectedActivity">
-        <option value="" disabled>Select an activity</option>
+        <option value="" disabled>Kies een optie</option>
         <option v-for="activity in activities" :key="activity" :value="activity">
           {{ activity }}
         </option>
       </select>
 
       <button @click="selectActivity" :disabled="!selectedActivity" class="select-btn">
-        Enter Portal
+        Teleporteer
       </button>
-      <button class="select-btn" @click="goToHome">Home</button>
+      <button class="select-btn" @click="goToHome">Terug</button>
 
       <div v-if="showPortal" class="portal-container">
         <div class="portal">
